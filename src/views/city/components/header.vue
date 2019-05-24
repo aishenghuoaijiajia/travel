@@ -1,9 +1,11 @@
 <template>
     <div>
         <div class="head">
-            <router-link to="/" class="head-back">
-                <span class="iconfont">&#xe624;</span>
-            </router-link>
+            <div class="head-back">
+                <router-link to="/">
+                    <span class="iconfont color-w">&#xe624;</span>
+                </router-link>
+            </div>
             <p class="head-title">城市选择</p>
         </div>
     </div>
@@ -26,7 +28,8 @@
         text-align center
         .head-back
             width .84rem
-            color white
+            .color-w
+                color white
         .head-title
             flex 1
 
