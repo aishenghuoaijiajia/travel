@@ -5,8 +5,8 @@
             <span class="like-title">猜你喜欢</span>
         </div>
         <ul class="like-list">
-            <li class="like-item border-bottom" v-for="item in dataLists" :key="item.id">
-                <img class="item-img" :src="item.imgSrc">
+            <li class="like-item border-bottom" v-for="item in list" :key="item.id">
+                <img class="item-img" :src="item.imgUrl">
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>
                     <p class="item-desc">{{item.desc}}</p>
@@ -21,46 +21,8 @@
 <script>
     export default {
         name: "HomeRecommend",
-        data () {
-            return {
-                dataLists: [{
-                    id: '0001',
-                    imgSrc: 'http://img1.qunarzz.com/sight/p0/1411/bb/538133c76765880a3d3c802e45015c57.water.jpg_200x200_169b048c.jpg',
-                    title: '紫清湖生态温泉',
-                    desc: '3231条评论',
-                    place: '鼓楼区'
-                },{
-                    id: '0002',
-                    imgSrc: 'http://img1.qunarzz.com/sight/p0/1411/bb/538133c76765880a3d3c802e45015c57.water.jpg_200x200_169b048c.jpg',
-                    title: '紫清湖生态温泉',
-                    desc: '3231条评论',
-                    place: '鼓楼区'
-                },{
-                    id: '0003',
-                    imgSrc: 'http://img1.qunarzz.com/sight/p0/1411/bb/538133c76765880a3d3c802e45015c57.water.jpg_200x200_169b048c.jpg',
-                    title: '紫清湖生态温泉',
-                    desc: '3231条评论',
-                    place: '鼓楼区'
-                },{
-                    id: '0004',
-                    imgSrc: 'http://img1.qunarzz.com/sight/p0/1411/bb/538133c76765880a3d3c802e45015c57.water.jpg_200x200_169b048c.jpg',
-                    title: '紫清湖生态温泉',
-                    desc: '3231条评论',
-                    place: '鼓楼区'
-                },{
-                    id: '0005',
-                    imgSrc: 'http://img1.qunarzz.com/sight/p0/1411/bb/538133c76765880a3d3c802e45015c57.water.jpg_200x200_169b048c.jpg',
-                    title: '紫清湖生态温泉',
-                    desc: '3231条评论',
-                    place: '鼓楼区'
-                },{
-                    id: '0006',
-                    imgSrc: 'http://img1.qunarzz.com/sight/p0/1411/bb/538133c76765880a3d3c802e45015c57.water.jpg_200x200_169b048c.jpg',
-                    title: '紫清湖生态温泉',
-                    desc: '3231条评论',
-                    place: '鼓楼区'
-                }]
-            }
+        props: {
+            list: Array
         }
     }
 </script>

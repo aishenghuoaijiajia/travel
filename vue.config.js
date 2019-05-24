@@ -11,4 +11,14 @@ module.exports = {
             .set('@', resolve('src'))
             .set('styles', resolve('src/assets/styles'))
     },
+    devServer: {
+        proxy: {
+            '/api': {
+                target: 'http://localhost:8080', //对应自己的接口
+                pathRewrite: {
+                    '^/api': '/mock'
+                }
+            }
+        }
+    },
 }

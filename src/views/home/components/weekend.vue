@@ -2,8 +2,8 @@
     <div class="weekend">
         <p class="weekend-title">周末去哪儿</p>
         <ul class="weekend-list">
-            <li class="weekend-item" v-for="item in datalist" :key="item.id">
-                <img class="item-img" :src="item.imgSrc">
+            <li class="weekend-item" v-for="item in list" :key="item.id">
+                <img class="item-img" :src="item.imgUrl">
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>
                     <p class="item-desc">{{item.desc}}</p>
@@ -16,25 +16,8 @@
 <script>
     export default {
         name: "HomeWeekend",
-        data (){
-            return {
-                datalist: [{
-                    id: '0001',
-                    imgSrc: 'http://img1.qunarzz.com/sight/source/1505/f1/ae9d4299b8aaea.jpg_r_640x214_0c555905.jpg',
-                    title: '南京必打卡',
-                    desc: '看尽王侯将相荣辱成败，六朝金粉潮起潮落'
-                },{
-                    id: '0002',
-                    imgSrc: 'http://img1.qunarzz.com/sight/source/1505/f1/ae9d4299b8aaea.jpg_r_640x214_0c555905.jpg',
-                    title: '南京必打卡',
-                    desc: '看尽王侯将相荣辱成败，六朝金粉潮起潮落'
-                },{
-                    id: '0003',
-                    imgSrc: 'http://img1.qunarzz.com/sight/source/1505/f1/ae9d4299b8aaea.jpg_r_640x214_0c555905.jpg',
-                    title: '南京必打卡',
-                    desc: '看尽王侯将相荣辱成败，六朝金粉潮起潮落'
-                }]
-            }
+        props: {
+            list: Array
         }
     }
 </script>
