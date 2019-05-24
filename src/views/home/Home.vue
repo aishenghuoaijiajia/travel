@@ -1,25 +1,34 @@
 <template>
-    <div>
+    <div class="home">
         <home-header></home-header>
         <home-swiper></home-swiper>
         <home-icons></home-icons>
-    </div>
+        <home-recommend></home-recommend>
+        <home-weekend></home-weekend>
 
+    </div>
 </template>
 
 <script>
 import HomeHeader from './components/Header.vue'
 import HomeSwiper from './components/swiper.vue'
 import HomeIcons from './components/icons.vue'
+import HomeRecommend from './components/recommend'
+import HomeWeekend from  './components/weekend'
+
 export default {
     name: 'Home',
     components:{
+        HomeRecommend,
         HomeHeader,
         HomeSwiper,
-        HomeIcons
+        HomeIcons,
+        HomeWeekend
     }
 }
 </script>
 
-<style>
+<style lang="stylus" scoped>
+    .home
+        background-color #f5f5f5
 </style>

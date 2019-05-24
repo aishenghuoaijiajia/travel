@@ -90,18 +90,20 @@
         width: 100%
         height: 0
         padding-bottom:50%
-    .icon
-        float left
-        width: 25%
-        height: 0
-        padding-bottom: 25%
-        text-align: center
-        .icon-img
-            width 1.1rem
-            margin  0.1rem 0
-        .icon-desc
-            color: $darkTextColor
-            ellipsis()
+    .icons
+        background-color  white
+        .icon
+            float left
+            width: 25%
+            height: 0
+            padding-bottom: 25%
+            text-align: center
+            .icon-img
+                width 1.1rem
+                margin  0.1rem 0
+            .icon-desc
+                color: $darkTextColor
+                ellipsis()
 
 
 
