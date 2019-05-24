@@ -2,7 +2,9 @@
     <div class="header">
         <div class="header-left"><span class="iconfont">&#xe624;</span></div>
         <div class="header-center"><span class="iconfont">&#xe632;</span>请输入景点</div>
-        <div class="header-right">南京<span class="iconfont">&#xe6aa;</span></div>
+        <router-link to="/city">
+            <div class="header-right">南京<span class="iconfont">&#xe6aa;</span></div>
+        </router-link>
     </div>
 </template>
 
@@ -27,6 +29,7 @@
         .header-right
             width: 1.04rem
             text-align: center
+            color white
         .header-center
             flex: 1
             height: .6rem
