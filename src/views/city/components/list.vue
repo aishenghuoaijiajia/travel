@@ -12,40 +12,16 @@
             <div class="area">
                 <p class="list-title">热门城市</p>
                 <div class="city-list">
-                    <div class="city-box">
-                        <div class="city">南京</div>
-                    </div>
-                    <div class="city-box">
-                        <div class="city">南京</div>
-                    </div>
-                    <div class="city-box">
-                        <div class="city">南京</div>
-                    </div>
-                    <div class="city-box">
-                        <div class="city">南京</div>
-                    </div>
-                    <div class="city-box">
-                        <div class="city">南京</div>
-                    </div>
-                    <div class="city-box">
-                        <div class="city">南京</div>
+                    <div class="city-box" v-for="item in hotCities" :key="item.id">
+                        <div class="city">{{item.name}}</div>
                     </div>
                 </div>
             </div>
-            <div class="area">
-                <p class="list-title">热门城市</p>
-                <div class="city-item border-bottom">南京</div>
-                <div class="city-item border-bottom">南京</div>
-                <div class="city-item border-bottom">南京</div>
-                <div class="city-item border-bottom">南京</div>
-                <div class="city-item border-bottom">南京</div>
-                <div class="city-item border-bottom">南京</div>
-                <div class="city-item border-bottom">南京</div>
-                <div class="city-item border-bottom">南京</div>
-                <div class="city-item border-bottom">南京</div>
-                <div class="city-item border-bottom">南京</div>
-                <div class="city-item border-bottom">南京</div>
-                <div class="city-item border-bottom">南京</div>
+            <div class="area" v-for="(item, key) in cities" :key="key">
+                <p class="list-title">{{key}}</p>
+                <div class="city-item border-bottom"  v-for="list in item" :key="list.id">
+                    {{list.name}}
+                </div>
             </div>
         </div>
     </div>
@@ -55,6 +31,10 @@
     import BScroll from 'better-scroll'
     export default {
         name: "CityList",
+        props: {
+            cities: Object,
+            hotCities:  Array
+        },
         mounted () {
             this.scroll = new BScroll(this.$refs.wrapper)
         }

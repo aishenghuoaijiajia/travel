@@ -35,9 +35,9 @@ export default {
     methods: {
         getHomeInfo (){
             this.$axios.get('/api/index.json')
-                .then(this.getHomeInfoSucess)
+                .then(this.getHomeInfoSuccess)
         },
-        getHomeInfoSucess (res){
+        getHomeInfoSuccess (res){
             if(res.data.ret && res.data.data){
                 this.swiperList = res.data.data.swiperList
                 this.iconsList = res.data.data.iconsList
