@@ -1,0 +1,93 @@
+<template>
+    <div  class="list" ref="wrapper">
+        <div class="content">
+            <div class="area">
+                <p class="list-title">我的城市</p>
+                <div class="city-list">
+                    <div class="city-box">
+                        <div class="city">南京</div>
+                    </div>
+                </div>
+            </div>
+            <div class="area">
+                <p class="list-title">热门城市</p>
+                <div class="city-list">
+                    <div class="city-box">
+                        <div class="city">南京</div>
+                    </div>
+                    <div class="city-box">
+                        <div class="city">南京</div>
+                    </div>
+                    <div class="city-box">
+                        <div class="city">南京</div>
+                    </div>
+                    <div class="city-box">
+                        <div class="city">南京</div>
+                    </div>
+                    <div class="city-box">
+                        <div class="city">南京</div>
+                    </div>
+                    <div class="city-box">
+                        <div class="city">南京</div>
+                    </div>
+                </div>
+            </div>
+            <div class="area">
+                <p class="list-title">热门城市</p>
+                <div class="city-item border-bottom">南京</div>
+                <div class="city-item border-bottom">南京</div>
+                <div class="city-item border-bottom">南京</div>
+                <div class="city-item border-bottom">南京</div>
+                <div class="city-item border-bottom">南京</div>
+                <div class="city-item border-bottom">南京</div>
+                <div class="city-item border-bottom">南京</div>
+                <div class="city-item border-bottom">南京</div>
+                <div class="city-item border-bottom">南京</div>
+                <div class="city-item border-bottom">南京</div>
+                <div class="city-item border-bottom">南京</div>
+                <div class="city-item border-bottom">南京</div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import BScroll from 'better-scroll'
+    export default {
+        name: "CityList",
+        mounted () {
+            this.scroll = new BScroll(this.$refs.wrapper)
+        }
+    }
+</script>
+
+<style lang="stylus" scoped>
+    .list
+        overflow: hidden
+        position: absolute
+        top: 1.72rem
+        left: 0
+        right: 0
+        bottom: 0
+        .list-title
+            font-size .24rem
+            padding .24rem .2rem
+            background-color #f5f5f5
+        .city-list
+            overflow hidden
+            padding: .1rem .6rem .1rem .1rem
+            .city-box
+                float left
+                width 33.33%
+                padding 0.1rem
+                box-sizing border-box
+                .city
+                    border .02rem solid #ccc
+                    border-radius: .06rem
+                    padding: .1rem 0
+                    text-align: center
+        .city-item
+            line-height: .76rem
+            padding-left: .2rem
+
+</style>
