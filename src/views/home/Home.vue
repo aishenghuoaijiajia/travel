@@ -14,6 +14,7 @@ import HomeSwiper from './components/swiper.vue'
 import HomeIcons from './components/icons.vue'
 import HomeRecommend from './components/recommend'
 import HomeWeekend from  './components/weekend'
+import { mapState } from 'vuex'
 
 export default {
     name: 'Home',
@@ -29,7 +30,8 @@ export default {
             swiperList: [],
             iconsList: [],
             recommendList: [],
-            weekendList: []
+            weekendList: [],
+            lastCity: ''
         }
     },
     methods: {
@@ -46,8 +48,18 @@ export default {
             }
         }
     },
+    computed: {
+        ...mapState(['currentCity'])
+    },
     mounted (){
+        this.lastCity = this.currentCity
         this.getHomeInfo()
+    },
+    activated() {
+        if(this.lastCity !== this.currentCity){
+            this.lastCity = this.currentCity
+            this.getHomeInfo()
+        }
     }
 }
 </script>

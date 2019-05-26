@@ -9,12 +9,11 @@
 </template>
 
 <script>
+    import { mapState } from 'vuex'
     export default {
         name: "HomeHeader",
         computed: {
-            currentCity () {
-                return this.$store.state.currentCity
-            }
+            ...mapState(['currentCity'])
         }
     }
 </script>
