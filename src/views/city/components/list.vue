@@ -5,7 +5,7 @@
                 <p class="list-title">我的城市</p>
                 <div class="city-list">
                     <div class="city-box">
-                        <div class="city">南京</div>
+                        <div class="city">{{currentCity}}</div>
                     </div>
                 </div>
             </div>
@@ -13,13 +13,19 @@
                 <p class="list-title">热门城市</p>
                 <div class="city-list">
                     <div class="city-box" v-for="item in hotCities" :key="item.id">
-                        <div class="city">{{item.name}}</div>
+                        <div class="city" @click="handleCityClick(item.name)">{{item.name}}</div>
                     </div>
                 </div>
             </div>
-            <div class="area" v-for="(item, key) in cities" :key="key">
+            <div class="area"
+                 v-for="(item, key) in cities"
+                 :key="key"
+                 :ref="key">
                 <p class="list-title">{{key}}</p>
-                <div class="city-item border-bottom"  v-for="list in item" :key="list.id">
+                <div class="city-item border-bottom"
+                     v-for="list in item"
+                     @click="handleCityClick(list.name)"
+                     :key="list.id">
                     {{list.name}}
                 </div>
             </div>
@@ -35,8 +41,26 @@
             cities: Object,
             hotCities:  Array
         },
+        methods: {
+            toScroll (value){
+                const  ele = this.$refs[value][0]
+                this.scroll.scrollToElement(ele)
+            },
+            handleCityClick (city){
+                this.$store.commit('changeCurrentCity',city)
+                this.$router.push('/')
+            }
+        },
         mounted () {
             this.scroll = new BScroll(this.$refs.wrapper)
+            this.bus.$on('letterChange', value => {
+                this.toScroll(value)
+            })
+        },
+        computed: {
+            currentCity () {
+                return this.$store.state.currentCity
+            }
         }
     }
 </script>

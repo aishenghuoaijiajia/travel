@@ -3,14 +3,19 @@
         <div class="header-left"><span class="iconfont">&#xe624;</span></div>
         <div class="header-center"><span class="iconfont">&#xe632;</span>请输入景点</div>
         <router-link to="/city">
-            <div class="header-right">南京<span class="iconfont">&#xe6aa;</span></div>
+            <div class="header-right">{{currentCity}}<span class="iconfont">&#xe6aa;</span></div>
         </router-link>
     </div>
 </template>
 
 <script>
     export default {
-        name: "HomeHeader"
+        name: "HomeHeader",
+        computed: {
+            currentCity () {
+                return this.$store.state.currentCity
+            }
+        }
     }
 </script>
 
@@ -27,7 +32,8 @@
             width: .84rem
             text-align: center
         .header-right
-            width: 1.04rem
+            min-width: 1.04rem
+            padding: 0 .1rem
             text-align: center
             color white
         .header-center

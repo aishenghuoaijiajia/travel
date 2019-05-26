@@ -1,8 +1,14 @@
 <template>
     <ul class="alpha">
-        <li class="item" v-for="(item, key) in cities" :key="key">
-            {{key}}
-        </li>
+        <li class="item"
+            v-for="key in letters"
+            :key="key"
+            :ref="key"
+            @click="handleClick"
+            @touchstart.prevent="handleTouchStart"
+            @touchmove="handleTouchMove"
+            @touchend="handleTouchEnd"
+        >{{key}}</li>
     </ul>
 </template>
 
@@ -11,6 +17,51 @@
         name: "CityAlphabet",
         props: {
             cities: Object
+        },
+        data (){
+            return {
+                touchStatus: false,
+                timer: null,
+                startY: 0
+            }
+        },
+        computed: {
+            letters (){
+                const letters =[]
+                for(let key in this.cities){
+                    letters.push(key)
+                }
+                return letters
+            }
+        },
+        updated (){
+            this.startY = this.$refs['A'][0].offsetTop
+        },
+        methods: {
+            handleClick (e){
+                this.bus.$emit('letterChange', e.target.innerText)
+            },
+            handleTouchStart(){
+                this.touchStatus = true
+            },
+            handleTouchMove(e){
+                if(this.touchStatus){
+                    if (this.timer) {
+                        clearTimeout(this.timer)
+                    }
+                    this.timer = setTimeout(() => {
+                        const touchY = e.touches[0].clientY - 85
+                        const index = Math.floor((touchY - this.startY) / 20)
+                        if (index >= 0 && index < this.letters.length) {
+                            this.bus.$emit('letterChange', this.letters[index])
+                        }
+                    }, 8)
+
+                }
+            },
+            handleTouchEnd(){
+                this.touchStatus = false
+            }
         }
     }
 </script>
