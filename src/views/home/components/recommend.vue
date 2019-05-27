@@ -6,9 +6,9 @@
         </div>
         <ul class="like-list">
             <router-link tag="li"
-                         to="/details"
                          class="like-item border-bottom"
                          v-for="item in list"
+                         :to="'/details/'+item.id"
                          :key="item.id">
                 <img class="item-img" :src="item.imgUrl">
                 <div class="item-info">

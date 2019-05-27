@@ -39,6 +39,7 @@
     .container >>> .swiper-container
         overflow: inherit
     .container
+        z-index 99
         display flex
         flex-direction column
         justify-content center
