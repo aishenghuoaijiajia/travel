@@ -23,5 +23,5 @@
 <style lang="stylus" scoped>
     .content
         height 50rem
-        background  rebeccapurple
+
 </style>
