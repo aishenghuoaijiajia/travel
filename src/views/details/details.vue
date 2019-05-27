@@ -1,19 +1,27 @@
 <template>
-    <details-banner></details-banner>
+    <div>
+        <details-banner></details-banner>
+        <details-header></details-header>
+        <div class="content"></div>
+    </div>
 </template>
 
 <script>
     import DetailsBanner from './components/banner'
+    import DetailsHeader from './components/header'
 
     export default {
         name: "Details",
         components: {
-            DetailsBanner
+            DetailsBanner,
+            DetailsHeader
         },
 
     }
 </script>
 
-<style scoped>
-
+<style lang="stylus" scoped>
+    .content
+        height 50rem
+        background  rebeccapurple
 </style>
