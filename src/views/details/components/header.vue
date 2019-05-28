@@ -3,7 +3,7 @@
         <router-link tag="div" to="/" class="head-icon" v-show="!showHead">
             <span class="iconfont">&#xe624;</span>
         </router-link>
-        <div class="head" :style="opacityStyle">
+        <div class="head" v-show="showHead" :style="opacityStyle">
             <div class="head-back">
                 <router-link to="/">
                     <span class="iconfont color-w">&#xe624;</span>
@@ -27,10 +27,10 @@
         },
         methods: {
             handleScroll (){
-                let top = document.documentElement.scrollTop
+                let top = document.documentElement.scrollTop || window.pageYOfset ||document.body.scrollTop;
                 if(top>0){
                     this.showHead = true
-                    let opacity = top/200
+                    let opacity = top/140
                         opacity = opacity>1 ? 1 : opacity
                     this.opacityStyle = {opacity}
                 }else {
@@ -60,6 +60,7 @@
             color white
             font-size .32rem
     .head
+        z-index 99
         position fixed
         top 0
         left 0
